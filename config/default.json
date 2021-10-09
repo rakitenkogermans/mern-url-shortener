@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "secretJWT": "mysterious mern stack application",
+  "mongoUri": "mongodb+srv://propano:1qaz3edc5tgb@cluster0.zjjwe.mongodb.net/mernUrlShortener?retryWrites=true&w=majority"
+}
