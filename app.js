@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+//To accept json format
+app.use(express.json({extended: true}));
+
 //Register our routes
 app.use('/api/auth', require('./routes/auth.routes'));
 

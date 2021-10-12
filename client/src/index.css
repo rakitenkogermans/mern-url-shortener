@@ -1,0 +1,48 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+:root {
+    --color-1: #1de9b6;
+    --color-2: #e91d5a;
+}
+
+nav ul a {
+    padding: 0 30px;
+}
+
+@media only screen and (min-width: 993px) {
+    .hide-hamburger {
+        display: none !important;
+    }
+}
+
+.input-field input[type=text], .input-field input[type=password] {
+    border-bottom: 1px solid white !important;
+}
+
+/* label color */
+.input-field input:focus {
+    color: var(--color-1) !important;
+}
+/* label focus color */
+.input-field input:focus + label {
+    color: var(--color-1) !important;
+}
+/* label underline focus color */
+.input-field input:focus {
+    border-bottom: 1px solid var(--color-1) !important;
+    box-shadow: 0 1px 0 0 var(--color-1) !important;
+}
+/* valid color */
+.input-field input.valid {
+    border-bottom: 1px solid var(--color-1) !important;
+    box-shadow: 0 1px 0 0 var(--color-1) !important;
+}
+/* invalid color */
+.input-field input.invalid {
+    border-bottom: 1px solid var(--color-2) !important;
+    box-shadow: 0 1px 0 0 var(--color-2) !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: var(--color-1) !important;
+}

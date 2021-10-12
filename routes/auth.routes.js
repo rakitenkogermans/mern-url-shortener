@@ -64,7 +64,7 @@ router.post(
                 return res.status(400)
                     .json({
                         errors: errors.array(),
-                        message: 'Incorrect data at registration!'
+                        message: 'Incorrect data at login!'
                     })
             }
 
