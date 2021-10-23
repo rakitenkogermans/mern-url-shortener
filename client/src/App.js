@@ -1,20 +1,19 @@
 import React, {useState} from "react";
-import 'materialize-css';
-import useRoutes from "./router";
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import {useAuth} from "./hooks/auth.hook";
 import {AuthContext} from "./context/AuthContext";
 import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
+import 'materialize-css';
 
 function App() {
-    // const routes = useRoutes(false);
-    const {token, userId, login, logout} = useAuth();
-    console.log('Token',token);
+    const {token, userId, login, logout, ready} = useAuth();
     const isAuthenticated = !!token;
 
-    // const [isAuth, setIsAuth] = useState(isAuthenticated);
-
+    if (!ready) {
+        return <Loader/>;
+    }
     return (
         <AuthContext.Provider value={{
             token, userId, login, logout, isAuthenticated

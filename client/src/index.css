@@ -9,6 +9,10 @@ nav ul a {
     padding: 0 30px;
 }
 
+.calc__class {
+    height: calc(100vh - 64px);
+}
+
 @media only screen and (min-width: 993px) {
     .hide-hamburger {
         display: none !important;

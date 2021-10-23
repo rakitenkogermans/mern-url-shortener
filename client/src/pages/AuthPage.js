@@ -10,16 +10,16 @@ function AuthPage() {
     const {isLoading, error, request, clearError} = useHttp();
     const [form, setForm] = useState({
         email: '', password: ''
-    })
+    });
 
     useEffect(() => {
         message(error, true);
         clearError();
-    }, [error, message, clearError])
+    }, [error, message, clearError]);
 
     useEffect(() => {
         window.M.updateTextFields();
-    }, [])
+    }, []);
 
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value})
@@ -59,7 +59,8 @@ function AuthPage() {
                                     id="email"
                                     type="text"
                                     className="white-text"
-                                    name="email"/>
+                                    name="email"
+                                    value={form.email}/>
                                     <label htmlFor="email" className="white-text">E-mail</label>
                             </div>
                             <div className="input-field col s12">
@@ -69,7 +70,8 @@ function AuthPage() {
                                     id="password"
                                     type="password"
                                     className="white-text"
-                                    name="password"/>
+                                    name="password"
+                                    value={form.password}/>
                                     <label htmlFor="password" className="white-text">Password</label>
                             </div>
                         </div>
