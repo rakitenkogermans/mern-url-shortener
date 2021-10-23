@@ -1,7 +1,21 @@
 import React from 'react';
+import {useMessage} from "../hooks/message.hook";
+
+const flexStyle = {display: 'flex', alignItems: 'center', justifyContent: 'space-between'}
 
 function LinkCard({ link }) {
-    console.log(link);
+    const message = useMessage();
+
+    const copyToClipboard = (copyTxt) => {
+        const el = document.createElement('textarea');
+        el.value = copyTxt;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        message('Copied to the clipboard!', false);
+    }
+
     return (
         <div className="calc__class">
             <div className="row valign-wrapper" style={{height: '100%'}}>
@@ -25,20 +39,38 @@ function LinkCard({ link }) {
                             </div>
                         </div>
                         <div className="card-action">
-                            <a
-                                href={link.from}
-                                target="_blank"
-                                className="btn waves-effect white black-text hoverable btn-large"
-                                style={{ 'margin-right': '20px'}}
-                            >
-                                Base URL</a>
-                            <a
-                                href={link.to}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn waves-effect lime lighten-1 black-text hoverable btn-large"
-                            >
-                                Short URL</a>
+                            <div style={flexStyle}>
+                                <div>
+                                    <button
+                                        onClick={() => copyToClipboard(link.from)}
+                                        className="btn waves-effect white black-text hoverable"
+                                        style={{ 'margin-right': '20px'}}
+                                    >
+                                        <i className="material-icons prefix">content_copy</i></button>Base URL:
+                                </div>
+                                <a
+                                    href={link.from}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {link.from.length > 40 ? link.from.substr(0, 40) + ' ...' : link.from}</a>
+                            </div>
+                            <hr/>
+                            <div style={flexStyle}>
+                                <div>
+                                    <button
+                                        onClick={() => copyToClipboard(link.to)}
+                                        style={{ 'margin-right': '20px'}}
+                                        className="btn waves-effect lime lighten-1 black-text hoverable"
+                                    >
+                                        <i className="material-icons prefix">content_copy</i></button>Short URL:
+                                </div>
+                                <a
+                                    href={link.to}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >  {link.to}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
