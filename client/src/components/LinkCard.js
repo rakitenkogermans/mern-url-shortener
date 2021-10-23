@@ -27,12 +27,14 @@ function LinkCard({ link }) {
                         <div className="card-action">
                             <a
                                 href={link.from}
+                                target="_blank"
                                 className="btn waves-effect white black-text hoverable btn-large"
                                 style={{ 'margin-right': '20px'}}
                             >
                                 Base URL</a>
                             <a
                                 href={link.to}
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn waves-effect lime lighten-1 black-text hoverable btn-large"
                             >
