@@ -1,7 +1,6 @@
 const {Router} = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
 const {check, validationResult} = require('express-validator');
 const User = require('../models/User');
 const router = Router();
@@ -51,7 +50,7 @@ router.post(
 router.post(
     '/login',
     [
-        check('email', 'Please write correct email!').normalizeEmail().isEmail(),
+        check('email', 'Please write correct email!').isEmail(),
         check('password', 'Password must be filled.')
             .exists()
             .isLength({min: 6})
@@ -84,7 +83,7 @@ router.post(
 
             const token = jwt.sign(
                 {userId: user.id},
-                config.get('secretJWT'),
+                process.env.JWT_SECRET,
                 { expiresIn: '1h'}
             );
 

@@ -1,6 +1,0 @@
-{
-  "port": 5000,
-  "secretJWT": "mysterious mern stack application",
-  "mongoUri": "",
-  "baseUrl": "https://mern-stack-url-shortener.herokuapp.com"
-}
